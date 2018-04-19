@@ -62,7 +62,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
   //TODO: YOUR CODE HERE 
   float pn2=px*px+py*py;
   float pn=sqrt(pn2);
-  float pn32=pow(pn2,3/2);
+  float pn32=pn*pn2;
     
   //check division by zero
   if(fabs(pn2) < 0.0001){

@@ -71,7 +71,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     // first measurement
     cout << "EKF: " << endl;
     ekf_.x_ = VectorXd(4);
-    ekf_.x_ << 1, 1, 1, 1;
 
     if (measurement_pack.sensor_type_ == MeasurementPackage::RADAR) {
       /**
@@ -127,8 +126,8 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 	float dt3=dt2*dt;
 	float dt4=dt3*dt;
 	//acceleration noise components
-	float noise_ax=15;
-	float noise_ay=15;
+	float noise_ax=9;
+	float noise_ay=9;
 	ekf_.Q_ = MatrixXd(4, 4);
 	ekf_.Q_ << dt4/4.0*noise_ax,    0.0         , dt3/2.0*noise_ax,     0.0,
 	             0.0         ,dt4/4.0*noise_ay,     0.0         , dt3/2.0*noise_ay,
